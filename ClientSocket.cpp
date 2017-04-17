@@ -2,6 +2,7 @@
 
 int sendall(int s, char *buf, int len, int flags);
 int recvall(int s, char *buf, int len, int flags);
+int recvall_stream(int s, stringstream &stream, int flags);
 
 ClientSocket::ClientSocket(): domain(AF_INET), type(SOCK_STREAM), protocol(IPPROTO_TCP) {
   desc = -1;
@@ -42,6 +43,9 @@ void ClientSocket::operator>>(string &response) const {
 void ClientSocket::operator<<(const stringstream& stream) const {
   if(sendall(desc, (char *)stream.str().c_str(), stream.str().length(), 0) < 0) throw SocketException("Can not send the data!!!", this->desc);
 }
+void ClientSocket::operator>>(stringstream &response) const {
+  if(recvall_stream(desc, response, 0) < 0) throw SocketException("Can not recieve the data!!!", this->desc);
+}
 
 //necessary functions
 int sendall(int s, char *buf, int len, int flags) {
@@ -63,4 +67,21 @@ int recvall(int s, char *buf, int len, int flags) {
   }
   if ( len > 0 || n < 0 ) return -1;
   return n;
+}
+int recvall_stream(int s, stringstream &stream, int flags) {
+  int len = 1024;
+  char *p = new char[len];
+  memset(p, '\0', len);
+  int n;
+  while (true) {
+    n = recv(s, p, len, flags);
+    if(n<=0) break;
+    char *cpy = new char[len+1];
+    memset(cpy, '\0', len+1);
+    strncpy(cpy, p, len);
+    stream << cpy;
+    memset(p, '\0', len);
+  }
+  delete[] p;
+  return 0;
 }

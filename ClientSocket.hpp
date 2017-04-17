@@ -29,6 +29,7 @@ class ClientSocket {
     void operator<<(const string &data) const;
     void operator>>(string &response) const;
     void operator<<(const stringstream& stream) const;
+    void operator>>(stringstream &response) const;
 };
 
 #endif

@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <fcntl.h>
 #include <cstdlib>
 #include <string.h>
 #include <iostream>
@@ -32,6 +33,7 @@ class ServerSocket {
     void operator<<(const string &data) const;
     void operator>>(string &response) const;
     void operator<<(const stringstream &data) const;
+    void operator>>(stringstream &response) const;
 };
 
 #endif
