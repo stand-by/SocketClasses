@@ -53,6 +53,9 @@ void ServerSocket::operator<<(const string &data) const {
 void ServerSocket::operator>>(string &response) const {
   if(recvall(desc, (char *)response.data(), response.size(), 0) < 0) throw SocketException("Can not recieve the data!!!", this->desc);
 }
+void ServerSocket::operator<<(const stringstream& stream) const {
+  if(sendall(desc, (char *)stream.str().c_str(), stream.str().length(), 0) < 0) throw SocketException("Can not send the data!!!", this->desc);
+}
 
 //necessary functions
 int sendall(int s, char *buf, int len, int flags) {

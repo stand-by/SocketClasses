@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <string.h>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 class ClientSocket {
@@ -27,6 +28,7 @@ class ClientSocket {
     int getServerPort() const;
     void operator<<(const string &data) const;
     void operator>>(string &response) const;
+    void operator<<(const stringstream& stream) const;
 };
 
 #endif

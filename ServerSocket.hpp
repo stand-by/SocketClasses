@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <string.h>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 class ServerSocket {
@@ -30,6 +31,7 @@ class ServerSocket {
     void acceptConnection(ServerSocket &tokenSocket) const;
     void operator<<(const string &data) const;
     void operator>>(string &response) const;
+    void operator<<(const stringstream &data) const;
 };
 
 #endif
