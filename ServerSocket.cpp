@@ -1,4 +1,4 @@
-#include "ServerSocket.h"
+#include "ServerSocket.hpp"
 
 int sendall(int s, char *buf, int len, int flags);
 int recvall(int s, char *buf, int len, int flags);

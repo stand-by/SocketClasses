@@ -1,5 +1,5 @@
-#ifndef SOCKETEXCEPTION_H
-#define SOCKETEXCEPTION_H
+#ifndef SOCKETEXCEPTION_HPP
+#define SOCKETEXCEPTION_HPP
 
 #include <exception>
 #include <iostream>

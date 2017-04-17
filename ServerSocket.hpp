@@ -1,7 +1,7 @@
-#ifndef SERVERSOCKET_H
-#define SERVERSOCKET_H
+#ifndef SERVERSOCKET_HPP
+#define SERVERSOCKET_HPP
 
-#include "SocketException.h"
+#include "SocketException.hpp"
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>

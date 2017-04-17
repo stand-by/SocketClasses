@@ -2,6 +2,12 @@
 # Prerequisites
 *.d
 
+# Unnecessary sources and binaries
+client.cpp
+server.cpp
+client
+server
+
 # Compiled Object files
 *.slo
 *.lo

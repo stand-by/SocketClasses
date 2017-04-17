@@ -1,7 +1,7 @@
-#ifndef CLIENTSOCKET_H
-#define CLIENTSOCKET_H
+#ifndef CLIENTSOCKET_HPP
+#define CLIENTSOCKET_HPP
 
-#include "SocketException.h"
+#include "SocketException.hpp"
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
