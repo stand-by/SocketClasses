@@ -9,7 +9,7 @@ These sockets work under TCP/IP protocol.
 <ul>
   <li>Constructor accepts server's IP as std::string and server's port as int;
   <li>Methods getServerIP and getServerPort are capable of returning IP and port;
-  <li>Operators '<<' and '>>' are able to send and recieve data respectively;
+  <li>Operators '<<' and '>>' are able to send and recieve data respectively (using std::string or std::stringstream);
 </ul>
 
 ### Methods of ServerSocket class:
@@ -17,5 +17,5 @@ These sockets work under TCP/IP protocol.
   <li>Constructor accepts only port as int, which will be listened to;
   <li>Method getLocalPort returns port that was specified in constructor;
   <li>Methods getLastClientIP and getLastClientPort are capable of returning last client's IP and port;
-  <li>Operators '<<' and '>>' are able to send and recieve data respectively;
+  <li>Operators '<<' and '>>' are able to send and recieve data respectively (using std::string or std::stringstream);
 </ul>
